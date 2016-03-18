@@ -1,0 +1,25 @@
+// We are writing a simple jQuery plugin that displays a message specified in the msg parameter with a prefix.
+// The prefix is hidden if we pass the value false through the type parameter.
+(function ($) {
+    $.fn.loading = function(msg, type, cssClass){
+        var prefixes = {
+            warning: 'Warning: ' + msg,
+            error: 'Error: ' + msg,
+            info: 'Info: ' + msg,
+            warning: 'Caution: ' + msg,
+        };
+        if (type) {
+            concatMsg = prefixes[type];
+        } else {
+            concatMsg = msg;
+        }
+        $(this).each(function()  {
+            var tis = $(this)
+            if (msg == false) {
+                tis.html('');
+            } else {
+                tis.html(concatMsg);
+            }
+        });
+     }
+})(jQuery);
