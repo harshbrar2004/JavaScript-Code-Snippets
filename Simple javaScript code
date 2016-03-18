@@ -1,0 +1,19 @@
+(function () {
+
+    var anObject = {};
+    var anElem = document.getElementById("wrap");
+    var aString = "This is a string"
+
+
+    if (aString === "This is a string") {
+        anotherString = aString;
+    }
+
+    function person(name, age) {
+        this.name = name;
+        this.age  = age;
+    }
+
+    var aPerson = new person("John", 25);
+
+}());
