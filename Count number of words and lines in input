@@ -1,0 +1,27 @@
+//Count number of words and lines in given input
+// words are separated by one or more spaces and newlines
+var wordCount = 0;
+var lineCount = 0;
+var state = 'OutsideWord'; // where character before i belongs
+
+var i = 0;
+while (i != input.length) {
+  var c = input.charAt(i);
+  if ( c == ' ' ) {
+    state = 'OutsideWord';
+  }
+  else if ( isNewline(c) ) {
+    lineCount = lineCount + 1;
+    state = 'OutsideWord';
+  }
+  else { // not whitespace
+    if ( state == 'OutsideWord' ) {
+      wordCount = wordCount + 1;
+    }
+    state = 'InsideWord';
+  }
+  i = i + 1;
+}
+
+writeln('Number of words = ', wordCount);
+writeln('Number of lines = ', lineCount);
